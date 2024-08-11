@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+
+    <header class="header__container">
+        <div class="header__image">
+            <img src="{% static 'images/5.png' %}" alt="header" />
+        </div>
+
+        <div class="header__content">
+            <h2>Bankruptcy Detection</h2>
+            <h1>
+                Bankruptcy<br /><span class="h1__span-1">Detection</span>
+                <span class="h1__span-2">with ML</span>
+            </h1>
+            <p>
+                Machine learning models analyze financial data to predict the risk of a company going bankrupt. 
+                By identifying patterns and warning signs, 
+                these models help investors and stakeholders make informed decisions, 
+                aiming to prevent financial crises through early detection.
+            </p>
+            <div class="header__btn">
+                <a href="{% url 'table' %}"><button class="btn">bankrupt companies</button></a>
+            </div>
+        </div>
+    </header>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+{% endblock %}

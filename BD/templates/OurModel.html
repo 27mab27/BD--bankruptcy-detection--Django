@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/style2.css' %}">
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tsparticles@1.26.0/dist/tsparticles.min.js"></script>
+    <script defer src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="{% static 'js/main.js' %}"></script>
+    <script defer src="{% static 'js/main2.js' %}"></script>
+</head>
+<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/style2.css' %}">
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tsparticles@1.26.0/dist/tsparticles.min.js"></script>
+    <script defer src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="{% static 'js/main.js' %}"></script>
+    <script defer src="{% static 'js/main2.js' %}"></script>
+</head>
+    <div id="tsparticles"></div>
+    <section>
+        <div class="content">
+            <h1>Let's Try The Model Together!</h1>
+            <p>
+                The web application streamlines the recruitment process 
+                by capturing user information such as age, gender, education, experience, and interview scores. A machine learning model with 
+                97.33% accuracy predicts hiring decisions based on this data, and the results are instantly shown on the web page 
+                for immediate feedback.
+            </p>
+            <button href="#">Test The Model</button>
+        </div> 
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="{% static 'images/3.png' %}" alt="Confusion Matrix" />
+                    <div class="overlay">
+                        <h1>Confusion Matrix</h1>   
+                    </div>
+                </div>
+                <div class="swiper-slide">  
+                    <img src="{% static 'images/5.png' %}" alt="ROC Curve" />
+                    <div class="overlay">
+                        <h1>ROC Curve</h1>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/3.png' %}" alt="Confusion Matrix" />
+                    <div class="overlay">
+                        <h1>Confusion Matrix</h1>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/5.png' %}" alt="ROC Curve" />
+                    <div class="overlay">
+                        <h1>ROC Curve</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}
