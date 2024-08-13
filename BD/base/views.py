@@ -9,3 +9,7 @@ def table(request):
 
 def ourModel(request):
     return render(request,'OurModel.html')
+
+def about(request):
+    return render(request,'About.html')
+

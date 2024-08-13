@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>E-Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#c03afe',
+              textDark: '#111827',
+              textLight: '#6b7280',
+              white: '#ffffff',
+              bgc: '',
+            },
+            fontFamily: {
+              rale: ['Raleway', 'sans-serif'],
+            },
+            maxWidth: {
+              container: '1200px',
+            },
+            gridTemplateAreas: {
+              header: ['header header'],
+              main: ['main main'],
+              footer: ['footer footer'],
+            }
+          },
+        },
+      }
+    </script>
+  </head>
+
+  <body class="font-rale p-0 m-0 box-border list-none no-underline">
+   
+    
+    <header class="header__container max-w-container m-auto py-8 px-4 grid gap-8 text-center md:grid-cols-2 md:items-center md:text-left ">
+      <div class="header__image md:order-2">
+        <img src="{% static 'images/header-rem.png' %}" alt="header" class="flex w-full"/>
+      </div>
+      <div class="header__content">
+        <h1 class="mb-4 text-6xl font-bold leading-20 text-textDark">Single Platform For All Your <span class="text-primary">Learning</span> Needs.</h1>
+        <p class="mb-8 font-medium text-sm leading-7 ">
+          Whether you're seeking to enhance your professional skills, explore
+          new hobbies, or pursue academic interests, our comprehensive platform
+          offers diverse courses and resources tailored to support your lifelong
+          learning journey.
+        </p>
+        
+      </div>
+    </header>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{% static 'js/about.js' %}"></script>
+  </body>
+{% endblock %}
