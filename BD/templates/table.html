@@ -36,8 +36,49 @@
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
                 <div class="row">
-                  <div class="custom-block bg-white shadow-lg taller-block">
+                  <div >
                     <!-- Content here -->
+                    <div class="container mt-4">
+                      <h2 class="mb-4">Financial Data Table</h2>
+                      <table class="table table-hover table-striped table-bordered">
+                          <thead class="thead-dark">
+                              <tr>
+                                  <th>Company Name</th>
+                                  <th>Net Profit / Total Assets</th>
+                                  <th>Total Liabilities / Total Assets</th>
+                                  <th>Working Capital / Total Assets</th>
+                                  <th>Current Assets / Short-term Liabilities</th>
+                                  <th>Retained Earnings / Total Assets</th>
+                                  <th>Sales / Total Assets</th>
+                                  <th>Equity / Total Assets</th>
+                                  <th>Current Liabilities / Total Assets</th>
+                                  <th>Book Value of Equity / Total Liabilities</th>
+                                  <th>Gross Profit / Sales</th>
+                                  <th>Sales / Inventory</th>
+                                  <th>Bankrupt?</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {% for entry in financial_data_entries %}
+                              <tr>
+                                  <td>{{ entry.company_name }}</td>
+                                  <td>{{ entry.net_profit_to_total_assets }}</td>
+                                  <td>{{ entry.total_liabilities_to_total_assets }}</td>
+                                  <td>{{ entry.working_capital_to_total_assets }}</td>
+                                  <td>{{ entry.current_assets_to_short_term_liabilities }}</td>
+                                  <td>{{ entry.retained_earnings_to_total_assets }}</td>
+                                  <td>{{ entry.sales_to_total_assets }}</td>
+                                  <td>{{ entry.equity_to_total_assets }}</td>
+                                  <td>{{ entry.current_liabilities_to_total_assets }}</td>
+                                  <td>{{ entry.book_value_of_equity_to_total_liabilities }}</td>
+                                  <td>{{ entry.gross_profit_to_sales }}</td>
+                                  <td>{{ entry.sales_to_inventory }}</td>
+                                  <td>{{ entry.target }}</td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -51,60 +92,67 @@
                             <form action="" method="post">
                               {% csrf_token %}
                               <div class="user-box">
-                                {{ form.name_of_company.label_tag }}
                                 {{ form.name_of_company }}
+                                <label for="">Name of company</label>
                               </div>
                               <div class="user-box">
-                                {{ form.net_profit.label_tag }}
                                 {{ form.net_profit }}
+                                <label for="">Net Profit</label>
                               </div>
                               <div class="user-box">
-                                {{ form.total_assets.label_tag }}
                                 {{ form.total_assets }}
+                                <label for="">Total Assets</label>
                               </div>
                               <div class="user-box">
-                                {{ form.total_liabilities.label_tag }}
                                 {{ form.total_liabilities }}
+                                <label for="">Total Liabilities</label>
                               </div>
                               <div class="user-box">
-                                {{ form.working_capital.label_tag }}
                                 {{ form.working_capital }}
+                                <label for="">Working Capital
+                                </label>
                               </div>
                               <div class="user-box">
-                                {{ form.current_assets.label_tag }}
                                 {{ form.current_assets }}
+                                <label for="">Current Assets
+                                </label>
                               </div>
                               <div class="user-box">
-                                {{ form.short_term_liabilities.label_tag }}
                                 {{ form.short_term_liabilities }}
+                                <label for="">Short-term Liabilities</label>
                               </div>
                               <div class="user-box">
-                                {{ form.retained_earnings.label_tag }}
                                 {{ form.retained_earnings }}
+                                <label for="">Retained Earnings
+                                </label>
                               </div>
                               <div class="user-box">
-                                {{ form.sales.label_tag }}
                                 {{ form.sales }}
+                                <label for="">Sales
+                                </label>
                               </div>
                               <div class="user-box">
-                                {{ form.equity.label_tag }}
                                 {{ form.equity }}
+                                <label for="">Equity
+                                </label>
                               </div>
                               <div class="user-box">
-                                {{ form.current_liabilities.label_tag }}
                                 {{ form.current_liabilities }}
+                                <label for="">Current Liabilities
+                                </label>
                               </div>
                               <div class="user-box">
-                                {{ form.book_value_of_equity.label_tag }}
                                 {{ form.book_value_of_equity }}
+                                <label for="">Book Value of Equity</label>
+
                               </div>
                               <div class="user-box">
-                                {{ form.gross_profit.label_tag }}
                                 {{ form.gross_profit }}
+                                <label for="">Gross Profit</label>
                               </div>
                               <div class="user-box">
-                                {{ form.inventory.label_tag }}
                                 {{ form.inventory }}
+                                <label for="">Inventory</label>
                               </div>
                               <div class="button-container">
                                 <button type="submit" class="btn custom-btn mt-2 mt-lg-3">Save</button>

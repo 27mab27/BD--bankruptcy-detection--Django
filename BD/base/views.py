@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .forms import CompanyFinancialsForm
+from django.shortcuts import redirect, render
+
+from .models import FinancialData
+from .forms import CompanyFinancialsForm, FinancialDataForm
 import joblib
 from joblib import load
 import pickle
@@ -24,6 +26,8 @@ def homePage(request):
     return render(request,'home.html')
 
 def table(request):
+    financial_data_entries = FinancialData.objects.all()
+    form = CompanyFinancialsForm()
     if request.method == 'POST':
         form = CompanyFinancialsForm(request.POST)
         if form.is_valid():
@@ -69,18 +73,36 @@ def table(request):
             
             features = [features]  
             
-            y_pred = model.predict(features)
-            y_pred = y_pred[0]
+            target = model.predict(features)
+            target = target[0]
             
-            if y_pred == 0:
+            if target == 0:
                 prediction = "NOT BANKRUPT"
-            elif y_pred == 1:
+            elif target == 1:
                 prediction = "BANKRUPT"
 
             print("-------------------------------", prediction)
-    else:
-        form = CompanyFinancialsForm()
-    return render(request,'table.html', {'form': form})
+            financial_data_form = FinancialDataForm({
+                'company_name': form.cleaned_data['name_of_company'],
+                'net_profit_to_total_assets': net_profit_to_total_assets,
+                'total_liabilities_to_total_assets': total_liabilities_to_total_assets,
+                'working_capital_to_total_assets': working_capital_to_total_assets,
+                'current_assets_to_short_term_liabilities': current_assets_to_short_term_liabilities,
+                'retained_earnings_to_total_assets': retained_earnings_to_total_assets,
+                'sales_to_total_assets': sales_to_total_assets,
+                'equity_to_total_assets': equity_to_total_assets,
+                'current_liabilities_to_total_assets': current_liabilities_to_total_assets,
+                'book_value_of_equity_to_total_liabilities': book_value_of_equity_to_total_liabilities,
+                'gross_profit_to_sales': gross_profit_to_sales,
+                'sales_to_inventory': sales_to_inventory,
+                'target': target
+            })
+            
+            if financial_data_form.is_valid():
+                financial_data_form.save()
+                return redirect('table')
+   
+    return render(request,'table.html', {'form': form,'financial_data_entries': financial_data_entries})
 
 def ourModel(request):
     return render(request,'OurModel.html')
