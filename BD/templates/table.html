@@ -48,70 +48,66 @@
                       <div class="d-flex flex-column h-100">
                         <div class="custom-block-overlay-text d-flex">
                           <div class="login-box">
-                            <form action="">
+                            <form action="" method="post">
+                              {% csrf_token %}
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Name of company</label>
+                                {{ form.name_of_company.label_tag }}
+                                {{ form.name_of_company }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Net Profit</label>
+                                {{ form.net_profit.label_tag }}
+                                {{ form.net_profit }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Total Assets</label>
+                                {{ form.total_assets.label_tag }}
+                                {{ form.total_assets }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Total Liabilities</label>
+                                {{ form.total_liabilities.label_tag }}
+                                {{ form.total_liabilities }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Working Capital
-                                </label>
+                                {{ form.working_capital.label_tag }}
+                                {{ form.working_capital }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Current Assets
-                                </label>
+                                {{ form.current_assets.label_tag }}
+                                {{ form.current_assets }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Short-term Liabilities</label>
+                                {{ form.short_term_liabilities.label_tag }}
+                                {{ form.short_term_liabilities }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Sales
-                                </label>
+                                {{ form.retained_earnings.label_tag }}
+                                {{ form.retained_earnings }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Equity
-                                </label>
+                                {{ form.sales.label_tag }}
+                                {{ form.sales }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Current Liabilities
-                                </label>
+                                {{ form.equity.label_tag }}
+                                {{ form.equity }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Book Value of Equity</label>
+                                {{ form.current_liabilities.label_tag }}
+                                {{ form.current_liabilities }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Gross Profit</label>
+                                {{ form.book_value_of_equity.label_tag }}
+                                {{ form.book_value_of_equity }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Inventory</label>
+                                {{ form.gross_profit.label_tag }}
+                                {{ form.gross_profit }}
                               </div>
                               <div class="user-box">
-                                <input type="text" required>
-                                <label for="">Sales to Inventory</label>
+                                {{ form.inventory.label_tag }}
+                                {{ form.inventory }}
                               </div>
                               <div class="button-container">
-                                <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Save</a>
+                                <button type="submit" class="btn custom-btn mt-2 mt-lg-3">Save</button>
                               </div>
                             </form>
                           </div>
